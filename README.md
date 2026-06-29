@@ -46,6 +46,79 @@ Example workflow:
 
 ---
 
+## Integrated Denoising Framework (IDF)
+
+The **Integrated Denoising Framework (IDF)** is a signal-processing pipeline designed to suppress noise in DAS seismic recordings by combining multiple filtering and slope-based processing stages.
+
+### Core Implementation
+
+- **`IDF.py`**  
+  Main implementation of the Integrated Denoising Framework.  
+  This file contains the pipeline that integrates the different processing stages.
+
+- **`SOMF_flatten.py`**  
+  Implements slope-oriented median filtering (SOMF) in the **flattened domain**.
+
+- **`SOMF_slope.py`**  
+  Implements slope-oriented median filtering directly in the **slope domain**.
+
+### Example / Testing
+
+- **`IDF_test.ipynb`**  
+  Jupyter notebook demonstrating how to run and evaluate the IDF denoising workflow on DAS data.
+
+Typical workflow:
+
+1. Load DAS seismic data.
+2. Apply the IDF pipeline implemented in `IDF.py`.
+3. Internally call `SOMF_flatten.py` and `SOMF_slope.py` for slope-oriented filtering.
+4. Visualize and evaluate denoising performance in `IDF_test.ipynb`.
+
+---
+
+## SelfMixed Deep Learning Denoising
+
+**SelfMixed** is a deep-learning-based method designed for denoising DAS seismic data using self-supervised or mixed-noise learning strategies.
+
+### Core Implementation
+
+- **`selfmixed_model.py`**  
+  Defines the neural network architecture and associated functions for the SelfMixed denoising model.
+
+### Training / Testing
+
+- **`trainSMdas.ipynb`**  
+  Jupyter notebook used to:
+  - Train the SelfMixed model
+  - Run inference on DAS seismic data
+  - Evaluate denoising results
+
+---
+
+## Quick Start
+
+### Run the IDF method
+
+Open and run: **`IDF_test.ipynb`**
+
+This notebook demonstrates the full IDF denoising workflow.
+
+### Train or test the SelfMixed model
+
+Open and run: **`trainSMdas.ipynb`**
+
+This notebook handles model training and evaluation.
+
+---
+
+## Notes
+
+- The **IDF approach** is primarily signal-processing based and does not require model training.
+- The **SelfMixed approach** requires training and benefits from GPU acceleration.
+- Both methods are designed specifically for **Distributed Acoustic Sensing (DAS) seismic data**.
+
+---
+
 ## Citation
 
 ### BibTeX
